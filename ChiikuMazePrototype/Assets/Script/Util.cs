@@ -35,6 +35,8 @@ public class Util {
 		t.Y = y;
 		// 重力を無効にする
 		t.GravityScale = 0.0f;
+		t.RigidBody.isKinematic = true;
+		//t.RigidBody.velocity = Vector3.zero;
 		t.BoxCollider.size = new Vector2(0.3f, 0.3f);
 		//t.ScaleX = 10f;
 		//t.ScaleY = 10f;
