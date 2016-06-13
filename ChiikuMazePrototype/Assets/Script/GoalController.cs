@@ -9,11 +9,8 @@ public class GoalController : MonoBehaviour {
 	void Start () {
 		this.goalText = GameObject.Find("GoalText");
 		this.goalText.SetActive(false);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+		// Debug用
+		PlayerPrefs.DeleteAll();
 	}
 
 	void OnTriggerEnter2D(Collider2D collider) {
@@ -21,6 +18,13 @@ public class GoalController : MonoBehaviour {
 		if (objectName == "Player") {
 			Debug.Log ("Goal!!!" + objectName);
 			this.goalText.SetActive(true);
+			var gettedCat = PlayerPrefs.GetInt("gettedCat", 0);
+			if (gettedCat == 1) {
+				Debug.Log("Cat済");
+			} else {
+				Debug.Log("Cat未済");
+				PlayerPrefs.SetInt("gettedCat", 1);
+			}
 		}
 	}
 }
